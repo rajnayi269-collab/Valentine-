@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Heyy Beautiful ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(45deg,#ff4b6e,#ff758c,#ff7eb3);
+overflow:hidden;
+}
+
+/* Floating Hearts */
+.heart{
+position:absolute;
+bottom:-50px;
+font-size:20px;
+animation:float 6s linear infinite;
+color:white;
+}
+
+@keyframes float{
+0%{transform:translateY(0) rotate(0); opacity:1;}
+100%{transform:translateY(-100vh) rotate(360deg); opacity:0;}
+}
+
+/* Cat */
+.cat{
+position:absolute;
+bottom:20px;
+right:30px;
+font-size:80px;
+}
+
+/* Kiss animation */
+.kiss{
+position:absolute;
+bottom:100px;
+right:60px;
+font-size:25px;
+animation:kissFloat 3s linear infinite;
+}
+
+@keyframes kissFloat{
+0%{transform:translateY(0) scale(1); opacity:1;}
+100%{transform:translateY(-400px) scale(1.5); opacity:0;}
+}
+
+/* Main Content */
+.container{
+text-align:center;
+z-index:10;
+}
+
+h1{
+color:white;
+font-size:70px;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{ text-shadow:0 0 10px white,0 0 20px pink;}
+to{ text-shadow:0 0 20px white,0 0 40px red;}
+}
+
+/* Button */
+button{
+margin-top:40px;
+padding:15px 40px;
+font-size:22px;
+border:none;
+border-radius:40px;
+background:white;
+color:#ff4b6e;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+box-shadow:0 0 20px white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Heyy Beautiful ❤️</h1>
+<button onclick="location.href='page2.html'">OPEN MY HEART</button>
+</div>
+
+<!-- Cat -->
+<div class="cat">😽</div>
+
+<script>
+
+/* Floating hearts */
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=Math.random()*20+20+"px";
+heart.style.animationDuration=Math.random()*3+3+"s";
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),6000);
+}
+setInterval(createHeart,300);
+
+/* Cat kiss shower */
+function createKiss(){
+const kiss=document.createElement("div");
+kiss.classList.add("kiss");
+kiss.innerHTML="💋";
+kiss.style.right=Math.random()*120+"px";
+document.body.appendChild(kiss);
+
+setTimeout(()=>kiss.remove(),3000);
+}
+setInterval(createKiss,400);
+
+</script>
+
+
+</body>
+</html>

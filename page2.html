@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:linear-gradient(45deg,#6a11cb,#b91372,#8e2de2);
+overflow:hidden;
+text-align:center;
+}
+
+/* Typewriter text */
+.message{
+font-size:45px;
+color:white;
+border-right:4px solid white;
+width:0;
+overflow:hidden;
+white-space:nowrap;
+animation:typing 4s steps(30,end) forwards,
+blink 0.8s infinite;
+}
+
+@keyframes typing{
+to{width:100%;}
+}
+
+@keyframes blink{
+50%{border-color:transparent;}
+}
+
+/* Purple Hearts */
+.purpleHeart{
+position:absolute;
+top:-50px;
+font-size:30px;
+animation:fall 6s linear infinite;
+}
+
+/* Tulips */
+.tulip{
+position:absolute;
+top:-50px;
+font-size:28px;
+animation:fall 7s linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(0) rotate(0);}
+100%{transform:translateY(110vh) rotate(360deg);}
+}
+
+/* Button */
+button{
+margin-top:60px;
+padding:15px 40px;
+font-size:20px;
+border:none;
+border-radius:40px;
+background:white;
+color:#8e2de2;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+box-shadow:0 0 20px white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="message">
+I Have Something Special For You ❤️
+</div>
+
+<button onclick="location.href='page3.html'">Open Again</button>
+
+
+<script>
+
+/* Purple hearts shower */
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("purpleHeart");
+heart.innerHTML="💜";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=Math.random()*3+4+"s";
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),6000);
+}
+setInterval(createHeart,400);
+
+/* Tulips shower */
+function createTulip(){
+const tulip=document.createElement("div");
+tulip.classList.add("tulip");
+tulip.innerHTML="🌷";
+tulip.style.left=Math.random()*100+"vw";
+tulip.style.animationDuration=Math.random()*3+5+"s";
+document.body.appendChild(tulip);
+
+setTimeout(()=>tulip.remove(),7000);
+}
+setInterval(createTulip,600);
+
+</script>
+
+</body>
+</html>
